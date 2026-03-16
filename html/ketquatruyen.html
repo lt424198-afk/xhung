@@ -1,29 +1,27 @@
-<!DOCTYPE html>
-<html lang="vi">
+<section id="result"></section>
 
-<head>
+<script>
 
-<meta charset="UTF-8">
-<title>Kết quả tìm kiếm</title>
+const params=new URLSearchParams(location.search)
 
-<link rel="stylesheet" href="../css/style.css">
+const name=params.get("name")
 
-</head>
+const result=document.getElementById("result")
 
-<body>
+result.innerHTML=`
 
-<header>
+<div class="card">
 
-<h1>📖 Kết quả truyện</h1>
+<img src="https://picsum.photos/300/400">
 
-<a href="sach.html">← Quay lại</a>
+<h2>${name}</h2>
 
-</header>
+<p>Đây là trang thông tin truyện. Nội dung truyện có thể được thêm vào đây.</p>
 
-<section id="result" class="grid"></section>
+<a href="sach.html">← Quay lại thư viện</a>
 
-<script src="../js/result.js"></script>
+</div>
 
-</body>
+`
 
-</html>
+</script>
