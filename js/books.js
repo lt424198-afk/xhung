@@ -1,37 +1,32 @@
-const container=document.getElementById("books")
+const container = document.getElementById("books")
 
-let books=[]
+let books = []
 
-for(let i=1;i<=100;i++){
+for(let i = 1; i <= 60; i++){
 
 books.push({
-
-title:"Truyện thiếu nhi số "+i,
-
-img:"https://picsum.photos/200/300?random="+i
-
+title: "Truyện thiếu nhi số " + i,
+img: "https://picsum.photos/300/400?random=" + i
 })
 
 }
 
 function showBooks(list){
 
-container.innerHTML=""
+container.innerHTML = ""
 
-list.forEach(b=>{
+list.forEach(book => {
 
-container.innerHTML+=`
-
+container.innerHTML += `
 <div class="card">
 
-<img src="${b.img}">
+<img src="${book.img}">
 
-<h3>${b.title}</h3>
+<h3>${book.title}</h3>
 
-<a href="ketquatruyen.html?name=${b.title}">Đọc truyện</a>
+<a href="ketquatruyen.html?name=${book.title}">Xem</a>
 
 </div>
-
 `
 
 })
@@ -42,9 +37,11 @@ showBooks(books)
 
 document.getElementById("searchInput").addEventListener("input",function(){
 
-let value=this.value.toLowerCase()
+let value = this.value.toLowerCase()
 
-let filtered=books.filter(b=>b.title.toLowerCase().includes(value))
+let filtered = books.filter(book =>
+book.title.toLowerCase().includes(value)
+)
 
 showBooks(filtered)
 
